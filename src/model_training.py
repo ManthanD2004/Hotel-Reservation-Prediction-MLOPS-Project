@@ -15,6 +15,11 @@ import mlflow
 import mlflow.sklearn
 
 
+mlflow.set_tracking_uri(
+    os.getenv("MLFLOW_TRACKING_URI", "file:///var/jenkins_home/workspace/MLOPS_1/mlruns")
+)
+print("Tracking URI:", mlflow.get_tracking_uri())
+
 logger = get_logger(__name__)
 
 class ModelTraining():
