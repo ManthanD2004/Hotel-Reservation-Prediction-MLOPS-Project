@@ -31,6 +31,19 @@ pipeline{
             }
         }
 
+
+        stage('Run Training Pipeline'){
+            steps{
+                script{
+                    echo 'Running Training Pipeline........'
+                    sh '''
+                    . ${VENV_DIR}/bin/activate
+                    python pipeline/training_pipeline.py
+                    '''
+                }
+            }
+        }
+
         stage('Building and Pushing Docker Image to GCR'){
             steps{
                 withCredentials([file(credentialsId: 'gcp-key', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]){
