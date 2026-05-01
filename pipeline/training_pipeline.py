@@ -6,7 +6,6 @@ from config.paths_config import CONFIG_PATH, PROCESSED_DIR,PROCESSED_TRAIN_DATA_
 
 
 
-
 if __name__ == "__main__":
 
     ### Data Ingestion
